@@ -1,0 +1,19 @@
+spring:
+  application:  
+    name: playlist-history
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: configserver
+      #uri: http://192.168.11.33:8888
+      #uri: http://localhost:8888
+      
+eureka:
+  instance:
+    prefer-ip-address: false
+  client:
+    fetch-registry: true
+    service-url:
+      defaultZone: http://192.168.11.33:8761/eureka/
+      #defaultZone: http://localhost:8761/eureka/

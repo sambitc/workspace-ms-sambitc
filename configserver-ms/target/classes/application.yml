@@ -1,0 +1,17 @@
+server:
+  port: 8888  
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/sambitc/mm-sample-config
+  
+eureka:
+  instance:
+    prefer-ip-address: false
+  client:
+    service-url:
+      defaultZone: http://192.168.11.33:8761/eureka/
+      #defaultZone: http://localhost:8761/eureka/

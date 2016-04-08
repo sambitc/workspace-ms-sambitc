@@ -1,0 +1,13 @@
+spring:
+  application:  
+    name: edge-server
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    non-secure-port: 8761
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.11.33:8761/eureka/
+      #defaultZone: http://localhost:8761/eureka/

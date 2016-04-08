@@ -1,0 +1,15 @@
+server:
+  port: 8765
+  
+zuul:
+  ignored-services: "*"
+  routes:
+    playlist-history: /ph/**
+    
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false

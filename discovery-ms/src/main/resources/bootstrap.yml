@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: discovery
+    
+# Defines the Eureka server that is used by the Netflix OSS components to use as the registry
+# for server discovery
+eureka:
+  instance:
+    prefer-ip-address: false
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+    service-url:
+      defaultZone: http://192.168.11.33:8761/eureka/    
+      #defaultZone: http://localhost:8761/eureka/    

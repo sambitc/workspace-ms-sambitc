@@ -1,0 +1,33 @@
+--- 
+configserver:
+  image: mm/configserver-ms
+  restart: always
+  links:
+    - discovery
+  ports:
+    - "8888:8888"
+
+discovery:
+  image: mm/discovery-ms
+  restart: always
+  ports:
+    - "8761:8761"
+
+playlist-history:
+  image: mm/playlist-history-ms
+  restart: always
+  links:
+    - configserver
+    - discovery
+
+playlist:
+  image: mm/playlist-ms
+  restart: always
+  ports:
+    - "8091:8091"
+  links:
+    - configserver
+    - discovery
+    - playlist-history
+ 
+

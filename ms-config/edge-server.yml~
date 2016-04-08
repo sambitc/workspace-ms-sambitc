@@ -1,0 +1,17 @@
+server:
+  port: 8765
+  
+zuul:
+  routes:
+    playlist-history:
+      path: /ph/**
+      url: http://localhost:8081
+    
+    
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
