@@ -1,0 +1,18 @@
+spring:
+  application:  
+    name: turbine-ms
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: configserver
+      uri: http://${CONFIG_SERVER_HOST}:8888
+      
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+  client:
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${SERVICE_REGISTRY_HOST}:8761/eureka/

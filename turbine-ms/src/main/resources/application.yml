@@ -1,0 +1,22 @@
+server:
+  port: 8989
+
+management:
+  port: 8990
+
+info:
+  component: Turbine
+
+PREFIX:
+  
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+
+
+app:
+  rabbitmq:
+    host: ${SERVICE_REGISTRY_HOST}
+

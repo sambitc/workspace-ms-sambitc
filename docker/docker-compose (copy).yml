@@ -3,7 +3,7 @@ configserver:
   image: mm/configserver-ms
   restart: always
   environment:
-    SERVICE_REGISTRY_HOST: ${MYAPP_STAGING_IP}
+    - SERVICE_REGISTRY_HOST: ${MYAPP_STAGING_IP}
   links:
     - discovery
   ports:
@@ -14,16 +14,14 @@ discovery:
   restart: always
   ports:
     - "8761:8761"
-  environment:
-    SERVICE_REGISTRY_HOST: ${MYAPP_STAGING_IP}
 
 playlist-history:
   image: mm/playlist-history-ms
   restart: always
   environment:
-     SERVICE_REGISTRY_HOST: ${MYAPP_STAGING_IP}
-     CONFIG_SERVER_HOST: ${MYAPP_STAGING_IP}
-     DB_HOST: ${MYAPP_STAGING_IP}
+    - SERVICE_REGISTRY_HOST: ${MYAPP_STAGING_IP}
+    - CONFIG_SERVER_HOST: ${MYAPP_STAGING_IP}
+    - DB_HOST: ${MYAPP_STAGING_IP}
   links:
     - configserver
     - discovery
@@ -32,9 +30,9 @@ playlist-song:
   image: mm/playlist-song-ms
   restart: always
   environment:
-     SERVICE_REGISTRY_HOST: ${MYAPP_STAGING_IP}
-     CONFIG_SERVER_HOST: ${MYAPP_STAGING_IP}
-     DB_HOST: ${MYAPP_STAGING_IP}
+    - SERVICE_REGISTRY_HOST: ${MYAPP_STAGING_IP}
+    - CONFIG_SERVER_HOST: ${MYAPP_STAGING_IP}
+    - DB_HOST: ${MYAPP_STAGING_IP}
   links:
     - configserver
     - discovery
@@ -43,8 +41,8 @@ playlist-api:
   image: mm/playlist-api-ms
   restart: always
   environment:
-     SERVICE_REGISTRY_HOST: ${MYAPP_STAGING_IP}
-     CONFIG_SERVER_HOST: ${MYAPP_STAGING_IP}
+    - SERVICE_REGISTRY_HOST: ${MYAPP_STAGING_IP}
+    - CONFIG_SERVER_HOST: ${MYAPP_STAGING_IP}
   ports:
     - "8091:8091"
   links:
@@ -52,7 +50,5 @@ playlist-api:
     - discovery
     - playlist-history
     - playlist-song
-
-
  
 
